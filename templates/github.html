@@ -1,0 +1,10 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<h2>GitHub Deploy</h2>
+<p class="sub">Paste public GitHub repo URL</p>
+<form method="POST" action="{{ url_for('github_deploy') }}" class="card">
+  <div class="form-group"><label>Bot name</label><input class="form-control" name="name" required></div>
+  <div class="form-group"><label>Repo URL</label><input class="form-control" name="repo_url" required placeholder="https://github.com/user/repo"></div>
+  <button class="btn btn-primary" type="submit">Deploy</button>
+</form>
+{% endblock %}
