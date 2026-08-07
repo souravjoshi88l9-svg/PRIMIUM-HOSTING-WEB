@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">MD Shanwaj</div>
+    <nav class="nav-links">
+      <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      <a href="{{ url_for('bots') }}">My Bots</a>
+      <a href="{{ url_for('upload') }}">Upload</a>
+      <a href="{{ url_for('github_deploy') }}">GitHub</a>
+      <a href="{{ url_for('profile') }}">Profile</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+  </aside>
+  <main class="main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}{% for c,m in messages %}<div class="flash flash-{{c}}">{{m}}</div>{% endfor %}{% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+</div>
+{% endblock %}
