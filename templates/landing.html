@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}MD Shanwaj Hosting — Premium Bot Panel{% endblock %}
+{% block body %}
+<div class="auth-wrap">
+  <div class="auth-card fade-up" style="max-width:520px;text-align:center">
+    <div class="logo" style="width:56px;height:56px;border-radius:16px;background:var(--gradient);display:grid;place-items:center;font-weight:800;margin:0 auto 1rem;box-shadow:0 8px 30px var(--primary-glow)">MS</div>
+    <h1 class="hero-title">Premium Bot Hosting</h1>
+    <p class="sub">Upload or GitHub deploy. Auto packages. Live logs. Fast panel.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem">
+      <a class="btn btn-primary" href="{{ url_for('register') }}">Get Started Free</a>
+      <a class="btn btn-ghost" href="{{ url_for('login') }}">Sign In</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
