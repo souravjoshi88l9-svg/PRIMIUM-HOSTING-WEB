@@ -1,0 +1,16 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<h2>My Bots</h2>
+{% if not bots %}
+<p class="sub">No bots yet. Upload or deploy from GitHub.</p>
+{% else %}
+<div class="card-list">
+{% for b in bots %}
+  <a class="card" href="{{ url_for('bot_detail', bot_id=b.id) }}" style="display:block;text-decoration:none;color:inherit;margin-bottom:0.75rem">
+    <strong>{{ b.name }}</strong>
+    <div class="sub">{{ b.status }} · {{ b.kind }}</div>
+  </a>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}
