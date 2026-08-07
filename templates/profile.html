@@ -1,0 +1,9 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<h2>Profile</h2>
+<div class="card">
+  <p><strong>Name:</strong> {{ user.name if user else session.get('name') }}</p>
+  <p><strong>Email:</strong> {{ user.email if user else '-' }}</p>
+  <p><strong>Username:</strong> {{ user.username if user else '-' }}</p>
+</div>
+{% endblock %}
