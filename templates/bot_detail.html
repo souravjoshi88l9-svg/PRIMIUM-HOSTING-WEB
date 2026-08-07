@@ -1,0 +1,17 @@
+{% extends "dashboard_base.html" %}
+{% block content %}
+<h2>{{ bot.name }}</h2>
+<p class="sub">Status: {{ bot.status }} · {{ bot.kind }} · {{ bot.entry }}</p>
+<div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin:1rem 0">
+  <form method="POST" action="{{ url_for('bot_action', bot_id=bot.id, action='start') }}"><button class="btn btn-primary" type="submit">Start</button></form>
+  <form method="POST" action="{{ url_for('bot_action', bot_id=bot.id, action='stop') }}"><button class="btn btn-ghost" type="submit">Stop</button></form>
+  <form method="POST" action="{{ url_for('bot_action', bot_id=bot.id, action='restart') }}"><button class="btn btn-ghost" type="submit">Restart</button></form>
+  <form method="POST" action="{{ url_for('bot_action', bot_id=bot.id, action='install') }}"><button class="btn btn-ghost" type="submit">Install packages</button></form>
+  <form method="POST" action="{{ url_for('bot_action', bot_id=bot.id, action='delete') }}" onsubmit="return confirm('Delete?')"><button class="btn btn-ghost" type="submit">Delete</button></form>
+  <a class="btn btn-ghost" href="{{ url_for('bots') }}">Back</a>
+</div>
+<div class="card">
+  <h3>Logs</h3>
+  <pre class="log-box" style="max-height:320px;overflow:auto;white-space:pre-wrap">{{ logs or 'No logs yet.' }}</pre>
+</div>
+{% endblock %}
